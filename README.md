@@ -1,7 +1,7 @@
 # Boris Bikes
 
 ## What does it do?
-A replica of London's Boris bikes.
+A replica of London's Boris Bikes.
 A person should be able to:
 - return a used bike to a docking station  
 - release a working bike from a docking station
@@ -15,8 +15,8 @@ This is a project given in my first week at Makers Academy, to help us understan
 
 
 ## Code Example
-Below are two methods from my DockingStation class. There are more methods than this, but below is just a sample from this class.
-
+Below are two methods from my DockingStation class. There are more methods than this, but below is just a sample from this class:
+```
 class DockingStation
 
   attr_reader :bikes, :capacity
@@ -35,3 +35,4 @@ class DockingStation
   end
 
 end
+```
