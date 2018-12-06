@@ -19,7 +19,13 @@ class DockingStation
 
   def release_bike
     fail 'No bikes available' if empty?
-    @bikes.pop
+    # don't return broken bikes
+    bike = @bikes.pop
+    if bike.broken?
+      @bikes.pop
+    else
+      bike
+    end
   end
 
   private

@@ -3,7 +3,8 @@
 ## What does it do?
 A replica of London's Boris Bikes.
 A person should be able to:
-- return a used bike to a docking station  
+
+- return a used bike to a docking station
 - release a working bike from a docking station
 - report a broken bike
 - docking stations should not release bikes that are broken
@@ -36,3 +37,10 @@ class DockingStation
 
 end
 ```
+
+## Tests
+(Describe and show how to run the tests with code examples)
+
+
+## How to use?
+(If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project)

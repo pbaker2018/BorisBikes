@@ -5,25 +5,23 @@ RSpec.describe DockingStation do
 
 let (:station) { described_class.new }
 
-  it { is_expected.to respond_to :release_bike }
-
-  it { is_expected.to respond_to(:dock).with(1).argument }
-
-  it { is_expected.to respond_to(:bikes) }
+let (:bike) { double :bike }
+let (:bike2) { double :bike }
 
   describe '#release_bike' do
     it 'releases a bike' do
-    bike = Bike.new
+    allow(bike).to receive(:broken?).and_return(false) #mocking
     station.dock(bike)
     expect(station.release_bike).to eq bike
     end
   end
 
   it 'releases working bikes' do
-    bike = Bike.new
+    allow(bike).to receive(:broken?).and_return(false) #mocking
     station.dock(bike)
-    bike = station.release_bike
-    expect(bike).to be_working
+    allow(bike2).to receive(:broken?).and_return(true) #mocking
+    station.dock(bike2)
+    expect(station.release_bike).not_to be_broken
   end
 
   describe '#release_bike' do
@@ -65,5 +63,4 @@ let (:station) { described_class.new }
       expect { station.dock(bike) }.to raise_error 'Docking station full'
     end
   end
-
-  end
+end
