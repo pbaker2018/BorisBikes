@@ -12,11 +12,11 @@ A person should be able to:
 
 
 ## Motivation
-This is a project given in my first week at Makers Academy, to help us understand OOP and TDD.
+This is a project given in my first week at Makers Academy, to help us understand OOP and TDD, and to start putting it in to practise.
 
 
 ## Code Example
-Below are two methods from my DockingStation class. There are more methods than this, but below is just a sample from this class:
+Below is a sample of just two methods from my DockingStation class:
 ```
 class DockingStation
 
@@ -39,8 +39,31 @@ end
 ```
 
 ## Tests
-(Describe and show how to run the tests with code examples)
+Below is an example of two of the tests for DockingStation class:
+```
+require 'docking_station'
+require 'bike'
 
+RSpec.describe DockingStation do
 
-## How to use?
-(If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project)
+let (:station) { described_class.new }
+
+let (:bike) { double :bike }
+let (:bike2) { double :bike }
+
+  describe '#release_bike' do
+    it 'releases a bike' do
+    allow(bike).to receive(:broken?).and_return(false) #mocking
+    station.dock(bike)
+    expect(station.release_bike).to eq bike
+    end
+  end
+
+  it 'releases working bikes' do
+    allow(bike).to receive(:broken?).and_return(false) #mocking
+    station.dock(bike)
+    allow(bike2).to receive(:broken?).and_return(true) #mocking
+    station.dock(bike2)
+    expect(station.release_bike).not_to be_broken
+  end
+```
