@@ -12,7 +12,7 @@ A person should be able to:
 
 
 ## Motivation
-This is a project given in my first week at Makers Academy, to help us understand OOP and TDD, and to start putting it in to practise.
+This project was to help me understand OOP and TDD, and to start putting it in to practise.
 
 
 ## Code Example
